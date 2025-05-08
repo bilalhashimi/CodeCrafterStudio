@@ -1,20 +1,41 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 import { motion } from 'framer-motion';
 
 const NavBar = () => {
+  // We'll keep the scrolled state for potential future use, but won't apply visual effects
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 30) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initial check in case the page is already scrolled on load
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <motion.nav 
-      className="w-full py-4 bg-white dark:bg-gray-900 shadow-md"
+      className="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <motion.div 
           className="flex items-center"
           whileHover={{ scale: 1.05 }}
@@ -51,7 +72,7 @@ const NavBar = () => {
           <ThemeToggle />
         </div>
         
-        {/* Mobile menu button - you can add functionality later */}
+        {/* Mobile menu button */}
         <div className="md:hidden flex items-center space-x-4">
           <ThemeToggle />
           <motion.button 
