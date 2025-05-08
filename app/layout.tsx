@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import React from 'react'
 import Script from 'next/script'
 import BackgroundEffect from '@/components/BackgroundEffect'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,8 +36,10 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
-        <BackgroundEffect />
-        {children}
+        <ThemeProvider>
+          <BackgroundEffect />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
