@@ -69,14 +69,14 @@ const ContactForm = () => {
 
   return (
     <motion.form 
-      className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-xl"
+      className="bg-white/90 dark:bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-white/10 shadow-xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
       onSubmit={handleSubmit}
     >
       <div className="mb-6">
-        <label htmlFor="name" className="block text-gray-300 mb-2 text-sm font-medium">
+        <label htmlFor="name" className="block text-gray-600 dark:text-gray-300 mb-2 text-sm font-medium">
           Name
         </label>
         <input
@@ -85,14 +85,14 @@ const ContactForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full bg-white/10 border ${errors.name ? 'border-red-500' : 'border-white/20'} rounded-lg p-3 text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+          className={`w-full bg-gray-50 dark:bg-white/10 border ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-white/20'} rounded-lg p-3 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
           placeholder="Your name"
         />
         {errors.name && <p className="mt-2 text-sm text-red-400">Please enter your name</p>}
       </div>
       
       <div className="mb-6">
-        <label htmlFor="email" className="block text-gray-300 mb-2 text-sm font-medium">
+        <label htmlFor="email" className="block text-gray-600 dark:text-gray-300 mb-2 text-sm font-medium">
           Email
         </label>
         <input
@@ -101,14 +101,14 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full bg-white/10 border ${errors.email ? 'border-red-500' : 'border-white/20'} rounded-lg p-3 text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+          className={`w-full bg-gray-50 dark:bg-white/10 border ${errors.email ? 'border-red-500' : 'border-gray-200 dark:border-white/20'} rounded-lg p-3 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
           placeholder="your.email@example.com"
         />
         {errors.email && <p className="mt-2 text-sm text-red-400">Please enter a valid email address</p>}
       </div>
       
       <div className="mb-6">
-        <label htmlFor="message" className="block text-gray-300 mb-2 text-sm font-medium">
+        <label htmlFor="message" className="block text-gray-600 dark:text-gray-300 mb-2 text-sm font-medium">
           Message
         </label>
         <textarea
@@ -117,7 +117,7 @@ const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           rows={5}
-          className={`w-full bg-white/10 border ${errors.message ? 'border-red-500' : 'border-white/20'} rounded-lg p-3 text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
+          className={`w-full bg-gray-50 dark:bg-white/10 border ${errors.message ? 'border-red-500' : 'border-gray-200 dark:border-white/20'} rounded-lg p-3 text-gray-800 dark:text-white outline-none focus:ring-2 focus:ring-blue-500 transition-all`}
           placeholder="Tell us about your project..."
         ></textarea>
         {errors.message && <p className="mt-2 text-sm text-red-400">Please enter a message</p>}
@@ -153,14 +153,14 @@ const ContactForm = () => {
 
 export default function ContactPage() {
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100 dark:from-[#0e0639] dark:via-[#1b0d4e] dark:to-[#17083b] text-gray-800 dark:text-white relative overflow-hidden">
+      {/* Background elements */}
+      <div className="fixed top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-100/30 dark:bg-purple-700/20 blur-[100px] pointer-events-none"></div>
+      <div className="fixed bottom-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-indigo-100/30 dark:bg-blue-700/20 blur-[80px] pointer-events-none"></div>
+      
       <NavBar />
-      <main className="min-h-screen bg-gradient-to-br from-[#0e0639] via-[#1b0d4e] to-[#17083b] text-white relative overflow-hidden">
-        {/* Background elements */}
-        <div className="fixed top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-700/20 blur-[100px] pointer-events-none"></div>
-        <div className="fixed bottom-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-blue-700/20 blur-[80px] pointer-events-none"></div>
-        
-        <section className="w-full py-20 relative z-10">
+      <main className="relative z-10">
+        <section className="w-full py-20">
           <div className="container mx-auto px-6">
             <motion.div 
               className="text-center mb-16"
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
                 Get in Touch
               </h1>
-              <p className="text-gray-300 max-w-2xl mx-auto text-lg md:text-xl">
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg md:text-xl">
                 Have a project in mind? Let's build something great together.
               </p>
             </motion.div>
@@ -240,30 +240,30 @@ export default function ContactPage() {
                 
                 {/* Alternative Contact Info */}
                 <motion.div
-                  className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 shadow-lg"
+                  className="bg-white/90 dark:bg-white/5 backdrop-blur-sm rounded-xl border border-gray-200 dark:border-white/10 p-6 shadow-lg"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <h3 className="text-xl font-semibold mb-4 text-white">
+                  <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">
                     Or reach us directly
                   </h3>
                   
                   <ul className="space-y-5">
                     <li className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
-                        <Mail className="w-5 h-5 text-blue-400" />
+                      <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center mr-4">
+                        <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                       </div>
-                      <a href="mailto:hello@codecrafter.studio" className="text-gray-300 hover:text-white transition-colors">
+                      <a href="mailto:hello@codecrafter.studio" className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors">
                         hello@codecrafter.studio
                       </a>
                     </li>
                     
                     <li className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
-                        <Phone className="w-5 h-5 text-purple-400" />
+                      <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-500/20 flex items-center justify-center mr-4">
+                        <Phone className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                       </div>
-                      <a href="tel:+15551234567" className="text-gray-300 hover:text-white transition-colors">
+                      <a href="tel:+15551234567" className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white transition-colors">
                         +1 (555) 123-4567
                       </a>
                     </li>
@@ -273,7 +273,7 @@ export default function ContactPage() {
                         <motion.a 
                           href="https://linkedin.com" 
                           target="_blank"
-                          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
                           whileHover={{ y: -3 }}
                         >
                           <Linkedin className="w-5 h-5" />
@@ -282,7 +282,7 @@ export default function ContactPage() {
                         <motion.a 
                           href="https://twitter.com" 
                           target="_blank"
-                          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
                           whileHover={{ y: -3 }}
                         >
                           <Twitter className="w-5 h-5" />
@@ -291,7 +291,7 @@ export default function ContactPage() {
                         <motion.a 
                           href="https://github.com" 
                           target="_blank"
-                          className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="w-10 h-10 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
                           whileHover={{ y: -3 }}
                         >
                           <Github className="w-5 h-5" />
@@ -306,6 +306,6 @@ export default function ContactPage() {
         </section>
       </main>
       <Footer />
-    </>
+    </div>
   );
 } 

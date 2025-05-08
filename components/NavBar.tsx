@@ -63,7 +63,7 @@ const NavBar = () => {
             >
               <Link 
                 href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} 
-                className="text-gray-800 dark:text-white hover:text-blue-500 transition-colors"
+                className="text-gray-800 hover:text-gray-900 dark:text-white dark:hover:text-gray-300 transition-colors"
               >
                 {item}
               </Link>
@@ -79,7 +79,7 @@ const NavBar = () => {
             className="outline-none mobile-menu-button"
             whileTap={{ scale: 0.9 }}
           >
-            <svg className="w-6 h-6 text-gray-500 hover:text-blue-500"
+            <svg className="w-6 h-6 text-gray-800 dark:text-white hover:text-gray-900 dark:hover:text-gray-300"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"

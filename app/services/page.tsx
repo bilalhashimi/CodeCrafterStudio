@@ -14,21 +14,21 @@ const ServiceCard = ({ title, description, icon, index = 0 }: {
 }) => {
   return (
     <motion.div 
-      className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-md hover:shadow-lg transition-shadow"
+      className="bg-white/90 dark:bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-gray-200 dark:border-white/10 shadow-md hover:shadow-lg transition-shadow"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       whileHover={{ y: -5 }}
     >
       <motion.div 
-        className="w-16 h-16 mb-4 relative flex items-center justify-center text-blue-400"
+        className="w-16 h-16 mb-4 relative flex items-center justify-center text-blue-600 dark:text-blue-400"
         whileHover={{ rotate: 5, scale: 1.1 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         {icon}
       </motion.div>
-      <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-300">{description}</p>
+      <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">{title}</h3>
+      <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </motion.div>
   );
 };
@@ -68,10 +68,10 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0e0639] via-[#1b0d4e] to-[#17083b] text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-200 to-gray-100 dark:from-[#0e0639] dark:via-[#1b0d4e] dark:to-[#17083b] text-gray-800 dark:text-white relative overflow-hidden">
       {/* Background elements */}
-      <div className="fixed top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-purple-700/20 blur-[100px] pointer-events-none"></div>
-      <div className="fixed bottom-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-blue-700/20 blur-[80px] pointer-events-none"></div>
+      <div className="fixed top-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-blue-100/30 dark:bg-purple-700/20 blur-[100px] pointer-events-none"></div>
+      <div className="fixed bottom-1/4 left-1/3 w-[300px] h-[300px] rounded-full bg-indigo-100/30 dark:bg-blue-700/20 blur-[80px] pointer-events-none"></div>
       
       <NavBar />
       <main className="pt-20">
@@ -83,8 +83,8 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">More Services We Offer</h1>
-              <p className="text-gray-300 max-w-2xl mx-auto">
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">More Services We Offer</h1>
+              <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 Explore our comprehensive range of professional services designed to help your business thrive in the digital landscape.
               </p>
             </motion.div>
@@ -111,7 +111,7 @@ export default function ServicesPage() {
         <section className="w-full py-16">
           <div className="container mx-auto px-6">
             <motion.div 
-              className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 shadow-xl p-8 md:p-12"
+              className="bg-white/90 dark:bg-white/5 backdrop-blur-sm rounded-lg border border-gray-200 dark:border-white/10 shadow-xl p-8 md:p-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -130,24 +130,24 @@ export default function ServicesPage() {
                       ease: "easeInOut" 
                     }}
                   >
-                    <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-xl"></div>
-                    <div className="relative w-24 h-24 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white">
+                    <div className="absolute inset-0 bg-blue-100/50 dark:bg-blue-500/10 rounded-full blur-xl"></div>
+                    <div className="relative w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-500 dark:from-blue-600 dark:to-purple-600 rounded-full flex items-center justify-center text-white">
                       <span className="text-3xl font-bold">24/7</span>
                     </div>
                   </motion.div>
                 </div>
                 <div className="md:w-2/3">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
                     Dedicated Support & Consultation
                   </h2>
-                  <p className="text-gray-300 mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
                     Our team of experts is available around the clock to provide technical support, strategic guidance, and personalized consultation for all your digital needs. We're committed to your success at every step of the journey.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <span className="px-3 py-1 bg-blue-900/30 text-blue-300 rounded-full text-sm">Technical Support</span>
-                    <span className="px-3 py-1 bg-purple-900/30 text-purple-300 rounded-full text-sm">Business Strategy</span>
-                    <span className="px-3 py-1 bg-green-900/30 text-green-300 rounded-full text-sm">Ongoing Maintenance</span>
-                    <span className="px-3 py-1 bg-amber-900/30 text-amber-300 rounded-full text-sm">Performance Optimization</span>
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full text-sm">Technical Support</span>
+                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full text-sm">Business Strategy</span>
+                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full text-sm">Ongoing Maintenance</span>
+                    <span className="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-sm">Performance Optimization</span>
                   </div>
                 </div>
               </div>
